@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:pixel_snap/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'my_ad.dart';
@@ -50,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final int totalItems = 25;
   final List<int> colorCodes = <int>[600, 500, 100];
 
+  final controller = ScrollController(); // scroll controller from PixelSnap
 
   final String _adUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/6300978111'
@@ -104,6 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget buildList() {
     return ListView.builder(
+        controller: controller,
         itemCount: totalItems,
         itemBuilder: (BuildContext context, int index) {
           return buildItem(index);
@@ -113,10 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
+      // Material app bar does not have pixel-snapped height and thus would break pixel snapping of
+      // the list view.
+      // appBar: AppBar(
+      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //   title: Text(widget.title),
+      // ),
       body: buildList(),
     );
   }

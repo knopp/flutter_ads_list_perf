@@ -30,7 +30,7 @@ class _MyAdWidgetState extends State<MyAdWidget> with AutomaticKeepAliveClientMi
       child: SafeArea(
         child: SizedBox(
           width: 300,
-          height: 250,
+          height: 150,
           child: AdWidget(ad: widget.ad),
         ),
       ),

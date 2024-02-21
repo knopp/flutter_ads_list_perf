@@ -46,9 +46,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<int> adIndexes = <int>[2, 6, 10, 14, 18];
+  final List<int> adIndexes = <int>[1, 3, 5, 7, 9, 10, 12, 14, 18];
   final int totalItems = 25;
   final List<int> colorCodes = <int>[600, 500, 100];
+
 
   final String _adUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/6300978111'
@@ -92,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final Color color = Colors.amber[colorCodes[index % colorCodes.length]]!;
 
     return Container(
-        height: 200,
+        height: 100,
         color: color,
         child: Center(
             child: Text(

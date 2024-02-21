@@ -115,12 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Material app bar does not have pixel-snapped height and thus would break pixel snapping of
-      // the list view.
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: Text(widget.title),
-      // ),
+      appBar: AppBar(
+        // Make sure that app bar height is pixel snapped, as it affects the layout below.
+        toolbarHeight: 44.pixelSnap(PixelSnap.of(context)),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
       body: buildList(),
     );
   }
